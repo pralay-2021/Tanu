@@ -1,0 +1,19 @@
+ssh-keygen -t rsa -b 4096 -C "pralay.bhowmik@gmail.com"
+
+ git config --global user.name "pralay-2021"
+
+
+ git config --global user.email "pralay.bhowmik@gmail.com"
+
+
+
+ git clone https://github.com/pralay-2021/Tanu.git
+
+git remote add origin https://github.com/pralay-2021/Tanu.git
+
+git push -u origin main
+
+
+git clean -fd
+
+How to add,commit in git-Hindi/Urdu | How to push from git to github | How to pull code from github

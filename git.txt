@@ -1,0 +1,19 @@
+
+
+$git clone git@github.com:pralay-2021/Tanu.git
+
+$ ssh-keygen
+
+$cd /c/Users/Administrator/.ssh/
+
+$ls
+
+$cat id_rsa.pub
+$git config --global user.name "pralay-2021"
+
+$git config --global user.email pralay.bhowmik@gmail.com
+
+$git remote add origin https://github.com/pralay-2021/Tanu.git
+
+$git push origin master/main
+
