@@ -1,0 +1,72 @@
+Goautodial - 192.168.0.213
+user id - admin
+password - rKw458Jo4ebe
+-------------------------------------------
+eth1 182.75.124.209
+     255.255.255.248
+     182.75.124.210
+
+eth0 	192.168.0.213
+        255.255.255.0		
+	
+dns-    8.8.8.8   secondary
+--------------------------------------------
+goauto
+root
+Lenaa456
+--------------------------------------------
+
+skype
+pralay.bhowmik
+lnsel@#803
+
+-------------------------------------------
+kumar.sanu21372@gmail.com
+-----------------------------------------
+skytel
+register => 3902771583:AYA72eKR@80.241.208.191:5060
+
+[skytel]
+type=friend
+username=3902771583
+fromuser=3902771583
+secret=AYA72eKR
+host=80.241.208.191
+context=trunkinbound
+canreinvite=yes
+insecure=very
+disallow=all
+allow=alaw
+allow=ulaw
+dtmfmode=rfc2833
+qualify=yes
+nat=yes
+---------
+SIP
+----
+exten => _476.,1,AGI(agi://127.0.0.1:4577/call_log)                    
+exten => _476.,2,Dial(SIP/${EXTEN:3}@skytel,,tToR)
+exten => _476.,3,Hangup
+
+
+exten => _475.,1,AGI(agi://127.0.0.1:4577/call_log)
+exten => _475.,2,Set(CALLERID(num)=018035${RAND(650000,920000)})
+exten => _475.,3,Dial(SIP/${EXTEN:3}@skytel,,tToR)
+exten => _475.,4,Hangup
+
+==================================================================
+Dial Prefix:	475
+Manual Dial Prefix 476
+Routing Extension:	8369
+Campaign Recording: ALLFORCE
+
+3 way call outbound caller id CUSTOMER
+3-Way Call Dial Prefix:	
+476
+----------------------------------------------------------------------
+ /usr/share/astguiclient/ADMIN_update_server_ip.pl
+
+
+
+
+
