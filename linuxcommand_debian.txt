@@ -1,0 +1,392 @@
+lhttps://thishosting.rocks/install-php-on-ubuntu/
+
+https://linuxhostsupport.com/blog/how-to-install-php-7-2-on-debian-9/
+
+https://www.digitalocean.com/community/tutorials/how-to-move-an-apache-web-root-to-a-new-location-on-debian-8
+
+https://linuxize.com/post/how-to-setup-ftp-server-with-vsftpd-on-debian-9/
+
+https://dimitar.me/how-to-create-an-ftp-user-and-allow-write-to-the-apache-root-directory-with-proper-permissions/
+
+https://unix.stackexchange.com/questions/241660/vsftpd-uploaded-file-group
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-debian-9
+
+https://linuxize.com/post/how-to-install-and-configure-vnc-on-debian-9/
+
+https://linuxhint.com/install_gitlab_debian9/
+
+https://serverfault.com/questions/20387/too-many-open-files-on-debian
+
+https://www.tecmint.com/mysql-backup-and-restore-commands-for-database-administration/
+
+https://support.combell.com/en/how-do-i-add-cronjobs-using-ssh/479
+
+https://economictheoryblog.com/2017/05/02/how-to-enable-gui-root-login-in-debian-9/
+=======================================================================================================================
+Enable Root Login in GUI ::
+
+# leafpad /etc/gdm3/daemon.conf
+
+Under security type “AllowRoot=true”
+
+# leafpad /etc/pam.d/gdm-password
+
+Within this file you have comment out the line containing “auth required pam_succeed_if.so user != root quiet_success” so that it looks like this
+
+#auth required pam_succeed_if.so user != root quiet_successSave the file and exit.
+========================================================================================================================
+CPU Info ::
+
+# cat /proc/cpuinfo | grep process
+
+Utilization Check ::
+
+# top // htop
+
+Clear Terminal History Command ::
+
+$ history -c
+
+# history -c
+
+---------------------------------------------------------------------------
+# apt update
+# apt upgrade
+
+Install "sudo" package ::
+
+# apt install sudo
+
+Add User to "sudo" Group ::
+
+# usermod -aG sudo username
+---------------------------------------------------------------------------
+MySql Installation ::
+
+# apt install mysql-client mysql-server
+
+# systemctl status mysql
+---------------------------------------------------------------------------
+PHP Installation ::
+
+PHP 7.0 Installation :
+
+# apt install php7.0 php7.0-mysql
+
+PHP 7.2 Installation :
+
+# apt install apt-transport-https lsb-release ca-certificates
+# wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+# echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
+# apt update
+# apt install php7.2
+# apt install php7.2-cli php7.2-common php7.2-json php7.2-opcache php7.2-zip php7.2-fpm php7.2-mbstring php7.2-dom 
+php7.2-gd php7.2-curl
+# apt install php7.3
+# apt install php7.3-cli php7.3-common php7.3-json php7.3-opcache php7.3-zip php7.3-fpm php7.3-mbstring php7.3-dom 
+php7.3-gd php7.3-curl php7.3-mysql
+
+Disable php 7.0 :
+
+# a2dismod php 7.0
+# systemctl restart apache2
+
+Enable php 7.2 :
+
+# a2enmod php7.2
+# systemctl restart apache2
+
+PHP Library Intall :
+
+# apt-get install php7.2-dom
+# apt-get install php7.2-gd
+# apt-get install php7.2-curl
+# apt-get install php7.2-mbstring
+----------------------------------------------------------------------------
+Apache Installation ::
+
+# apt install apache2 libapache2-mod-php7.0
+
+# apt install apache2 libapache2-mod-php7.2
+
+----------------------------------------------------------------------------
+PHPMyAdmin Installation ::
+
+# apt install phpmyadmin
+# apt remove phpmyadmin
+-----------------------------------------------------------------------------
+SSH Server Installation ::
+
+# apt install openssh-server
+# systemctl status ssh
+# systemctl start ssh
+# systemctl stop ssh
+------------------------------------------------------------------------------
+Enable Root User for SSH Login ::
+
+/etc/ssh/sshd_config
+
+PermitRootLogin Yes
+------------------------------------------------------------------------------
+Leafpad Installation ::
+
+# apt install leafpad
+------------------------------------------------------------------------------
+MySql from Command Line ::
+
+# mysql -h Hostname -u Username -p
+
+>CREATE DATABASE newdb;
+
+>SHOW DATABASES;
+
+>SHOW TABLES;
+
+>CREATE USER 'username'@'localhost' IDENTIFIED BY 'userpassword';
+
+>GRANT ALL PRIVILEGES ON *.* to 'username'@'localhost' WITH GRANT OPTION;
+
+>GRANT ALL PRIVILEGES ON *.* to 'username'@'%' WITH GRANT OPTION;
+
+>GRANT ALL PRIVILEGES ON *.* TO 'root'@'7.7.7.7' IDENTIFIED BY 'your-password';
+
+>FLUSH PRIVILEGES;
+
+>quit
+
+Delete Database ::
+
+> DROP DATABASE DatabaseName;
+
+Backup Database ::
+
+# mysqldump -h HostName -u UserName –p DatabaseName > /Path/DatabaseFile.sql
+
+Restore Database(Empty Database) ::
+
+# mysql -h HostName -u UserName -p DatabaseName < /Path/DatabaseFile.sql
+
+Restore Database(Existing Database) ::
+
+# mysqlimport -h HostName -u UserName -p Database < /Path/DatabaseFile.sql
+==========================================================================================================================
+Enabling mod_rewrite ::
+
+# a2enmod rewrite
+# systemctl restart apache2
+
+Enable .htaccess ::
+
+/etc/apache2/sites-available/000-default.conf
+
+Inside that file, you will find a <VirtualHost *:80> block starting on the first line. Inside of that block, add the following new block so your configuration file looks like the following. Make sure that all blocks are properly indented.
+/etc/apache2/sites-available/000-default.conf
+
+<VirtualHost *:80>
+    <Directory /var/www/html>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    . . .
+</VirtualHost>
+
+
+OR
+
+ <Directory /var/www/>
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride All
+    Order allow,deny
+    allow from all
+</Directory>
+
+# apache2ctl configtest
+==========================================================================================================================
+VSFTP Install & Configure ::
+
+Install :
+
+# apt update
+# apt install vsftpd
+# systemctl start vsftpd
+# systemctl stop vsftpd
+# systemctl status vsftpd
+--------------------------------------------------------------------------------------------------------
+Configure :
+
+Open File - /etc/vsftpd.conf
+
+anonymous_enable=NO
+
+local_enable=YES
+
+write_enable=YES
+
+chroot_local_user=YES
+
+Add The Following at the last line - 
+
+allow_writeable_chroot=YES
+pasv_min_port=30000
+pasv_max_port=31000
+
+FTP User Upload Files with 775 permission -
+
+local_umask=0002
+file_open_mode=0777
+
+# systemctl restart vsftpd
+--------------------------------------------------------------------------------------------------------
+FTP User Creation & Set Home Directory ::
+
+Create new user newftpuser:
+
+# adduser newftpuser
+
+Create new group lnselwww:
+
+# addgroup lnselwww
+
+Add newftpuser to that Group:
+
+# usermod -a -G lnselwww newftpuser
+
+Change group ownership for all files and dirs in /var/www:
+
+# chgrp -R lnselwww /var/www/html
+
+Modify group permissions on /var/www, so group members can modify the content:
+
+# chmod -R g+w /var/www/html
+
+Optionally mount directory /var/www to home directory of newftpuser:
+
+# mkdir /home/newftpuser/www
+# mount /var/www /home/newftpuser/www -o bind
+
+Now, after login, newftpuser can edit everything in /var/www, which he finds in /home/newftpuser/www.
+-------------------------------------------------------------------------------------------------------------------
+Set user HOME Directory to /var/www/ , if you want to change for existing user then you can use ::
+
+# usermod --home /var/www/html username
+-------------------------------------------------------------------------------------------------------------------
+1. Establish a [new directory] at /var/www/html
+
+2.Change the directory owner and group:
+
+    # chown www-data:www-data /var/www/html
+
+3. Allow the group to write to the directory with appropriate permissions:
+    
+   # chmod -R 775 /var/www/html
+
+4. Add myself to the www-data group:
+
+   # usermod -a -G www-data [my username]
+
+
+Automatically Set Group in a Folder ::
+
+vsftpd takes all information from /etc/passwd and /etc/groups with local users. To make your publichttp user uploaded files belong to ftpusers group, you need to set primary gid of publichttp user to ftpusers group in /etc/passwd.
+
+Take Group gid from etc/group file and update it to etc/passwd file.
+
+==========================================================================================================================
+
+Which User Running Apache ::
+
+# ps aux | egrep '(apache|httpd)'
+
+List of User Under a Group ::
+
+# grep 'group-name' /etc/group
+
+Change Permission For Folder and subdirectories and all files ::
+
+# chmod -R 775 /var/www/html
+
+See List of Users ::
+
+# cut -d: -f1 /etc/passwd
+
+Delete User ::
+
+# userdel user-name
+
+Delete Group ::
+
+# groupdel group-name
+
+Add User to a Group ::
+
+# usermod -a -G Group-Name User-Name
+
+Remove User From Group ::
+
+# gpasswd -d user-name group-name
+
+Change Owner ::
+
+# chown Owner-Name /var/www/html/Folder-Name
+
+===============================================================================================================
+SSH Banner Change ::
+
+Edit the file under - /etc/motd
+===============================================================================================================
+a2ensite [ [-q|--quiet] site]
+
+a2dissite [ [-q|--quiet] site]
+===============================================================================================================
+Copy Folder and all content ::
+
+# cp -a /var/www/html/Kesseler-Kitchen-Centre /var/www/html/Kesseler-Kitchen-Centre_New
+# cp -R /var/www/html/folder /var/www/html/folder_backup
+
+Remove Folder With All contents ::
+
+# rm -rf foldername
+===============================================================================================================
+Sudo Package Installed ::
+
+# apt-get update
+# apt-get install sudo
+# addgroup Username sudo(Sudo Group)
+
+Check User able to run sudo command or not :
+
+# sudo -l
+===============================================================================================================
+VI Editor ::
+
+i 	Insert at cursor (goes into insert mode)
+a 	Write after cursor (goes into insert mode)
+A 	Write at the end of line (goes into insert mode)
+ESC 	Terminate insert mode
+u 	Undo last change
+U 	Undo all changes to the entire line
+o 	Open a new line (goes into insert mode)
+dd
+3dd 	Delete line
+Delete 3 lines.
+D 	Delete contents of line after the cursor
+C 	Delete contents of a line after the cursor and insert new text. Press ESC key to end insertion.
+dw
+4dw 	Delete word
+Delete 4 words
+cw 	Change word
+x 	Delete character at the cursor
+r 	Replace character
+R 	Overwrite characters from cursor onward
+s 	Substitute one character under cursor continue to insert
+S 	Substitute entire line and begin to insert at the beginning of the line
+~ 	Change case of individual character
+
+Shift+zz 	Save the file and quit
+:w 	Save the file but keep it open
+:q 	Quit without saving
+:wq 	Save the file and quit 
+========================================================================================================================

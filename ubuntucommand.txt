@@ -1,0 +1,75 @@
+sudo apt update
+
+clear
+
+sudo apt install openssh-server
+
+sudo systemctl status ssh
+
+sudo ufw status
+
+sudo ufw enable
+
+
+sudo ufw status
+
+sudo ufw allow ssh
+
+sudo ufw status
+
+
+sudo ssh user@192.168.0.80
+
+sudo cat /etc/os-release
+
+ll
+
+sudo scp abc.txt  admin@192.168.0.20 /temp
+
+
+
+
+sudo fdisk -l
+sudo gdisk /dev/sda
+
+     MBR  only
+
+sudo lsblk   or lsblk -f
+
+------------------------------
+
+sudo apt update
+
+sudo apt install playonlinux samba winbind
+
+sudo dpkg -l playonlinux
+
+======================================
+
+sudo systemctl status ssh
+
+clear
+
+
+ip a
+
+ssh-keygen
+
+ls- la
+
+ls-la .ssh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
