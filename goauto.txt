@@ -1,0 +1,159 @@
+https://www.youtube.com/watch?v=k1RI5locZE4
+
+=======================================================================
+
+
+=========================================================================m
+goauto dial-2.1
+========================
+/usr/share/astguiclient/ADMIN_audio_store_sync.pl --debug x
+/usr/share/astguiclient/admin update server ip.pl
+mysqlcheck -u root -p --auto-repair --check --optimize --all-databases
+
+
+fortiget  admin Lnsel#2020
+=================================
+https://audio.online-convert.com/convert-to-mp3
+http://www.fromtexttospeech.com
+https://texttomp3.online/
+text2speech.org
+207.148.69.158
+==========================================================================
+
+==========================================
+SKYPE
+pralay.bhowmik
+lnsel@#803
+------------------------------------------
+
+Goautodial - 192.168.0.220 / 182.75.124.209
+user id - admin
+password - rKw458Jo4ebe   //  28ree@kol_adi123
+
+find / -name *1000008015* -exec cp {} / \recordings \;
+
+putty/WinSCP login id - root
+password - Lenaa456
+---------------------------------
+5.9.118.155
+
+Admin User -
+
+Username - Emunahadmin
+
+Password - yo9S5eW
+---------------------------------
+69.160.251.4
+10.0.0.0/24
+----------------------------
+local ip range 10.109.0.0/24
+      local dns ip 10.0.0.100
+-------------------------------------
+--------------------------------------
+skype
+pralay.bhowmik
+lnsel@#803
+-------------
+techteam.lnsel@gmail.com
+Lensel_2016
+===============================================================================
+lnsel live ip
+61.16.131.202
+---------------
+182.75.124.214
+----------------
+192.168.0.213 
+dialer
+live ip
+182.75.124.209
+255.255.255.248
+182.75.124.210			
+=======================================================================
+sudo reboot
+service networking restart
+======================================
+tata live ip
+192.168.0.0.214  goauto dialer
+ip = 61.16.131.203
+
+255.255.255.248	Subnet
+	
+61.16.131.201	Gateway
+
+103.8.46.5
+103.8.45.5
+=========================================================================
+sanu da cloude dialer
+
+5.9.118.155
+
+Admin User -
+
+Username - Emunahadmin
+
+Password - yo9S5eW
+
+========================================================================
+$ sudo /etc/init.d/networking restart
+sudo systemctl restart networking.service
+=======================================================================
+
+Deal All,
+
+this is work perfectly.
+
+nano /etc/asterisk/sip.conf
+
+look for below
+;bindport=5060
+bindport=7777
+
+then CRTL X and then Y... to exit
+
+then
+
+nano /etc/sysconfig/iptables
+
+#-A RH-Firewall-1-INPUT -m udp -p udp --dport 5060 -j ACCEPT
+-A RH-Firewall-1-INPUT -m udp -p udp --dport 7777 -j ACCEPT
+
+CRTL X and then Y to exit.
+====================================================================
+sudo apt purge package_name
+
+sudo apt remove package_name
+Apt-Get Remove Command
+To remove a specific package, use the apt-get remove command:
+
+sudo apt-get remove package_name
+
+https://websiteforstudents.com/how-to-uninstall-delete-packages-on-ubuntu-18-04/
+
+/etc/ssh/sshd_config
+
+
+PermitRootLogin yes
+
+systemctl restart sshd
+
+AutoRemove Command
+The apt package manager can remove orphaned or unnecessary dependencies with autoremove:
+
+sudo apt-get autoremove
+
+
+If you have any failed installations, broken dependencies, or corrupted package files, apt can try to repair them with the command:
+
+sudo apt-get –f install
+
+
+
+
+
+
+
+
+
+
+/etc/init.d/iptables restart
+/etc/init.d/asterisk restart

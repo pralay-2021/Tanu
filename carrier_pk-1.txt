@@ -1,0 +1,190 @@
+carrier ID                   Takestore
+
+carrier description          Takestore
+
+Registration String:	
+
+register => 13221986:274$YW#%^710@91.219.43.30:5060
+
+Account Entry:
+
+[Takestore]
+disallow=all
+allow=g729
+allow=ulaw
+type=friend
+dtmfmode=rfc2833
+username=13221986
+fromuser=13221986
+secret=274$YW#%^710
+host=91.219.43.30
+context=trunkinbound
+trustrpid=yes
+qualify=yes
+insecure=port,invite
+nat=yes
+
+Protocol : SIP
+
+Globals String: TAKESTORE= SIP/Takestore
+
+Dialplan Entry:
+
+exten => _48.,1,AGI(agi://127.0.0.1:4577/call_log)
+exten => _48.,2,Dial(${Takestore}/${EXTEN:2},,tTor)
+exten => _48.,3,Hangup
+
+
+=========================================================================
+ip base carrrier
+=========================================================================
+
+Takestore
+
+
+Takestore
+
+[Takestore]
+disallow=all
+allow=g729
+allow=ulaw
+allow=alaw
+type=friend
+dtmfmode=rfc2833
+host=185.150.200.178
+context=trunkinbound
+trustrpid=yes
+qualify=yes
+insecure=port,invite
+nat=yes
+
+TAKESTORE= SIP/Takestore
+
+exten => _48.,1,AGI(agi://127.0.0.1:4577/call_log)
+exten => _48.,2,Dial(${Takestore}/${EXTEN:2},,tTor)
+exten => _48.,3,Hangup
+
+===========================================================================
+
+portal-138.201.87.91
+
+account name - SHAWTELECOM
+WEB PASSWORD- : u9r6c2k
+login type :customer
+
+---------------------------------------------------------------------------
+
+Account name - SHAWTELECOM
+voip password : k6ff0e6
+signnaling ip -138.201.87.91
+
+
+============================================================================================================================================
+
+
+carrier ID                   Sippyswitch
+
+carrier description          Sippyswitch
+
+Registration String:	
+
+register => SHAWTELECOM:k6ff0e6@138.201.87.91:5060
+
+Account Entry:
+
+[Sippyswitch]
+disallow=all
+allow=g729
+allow=ulaw
+type=friend
+dtmfmode=rfc2833
+username=SHAWTELECOM
+secret=k6ff0e6
+host=138.201.87.91
+context=trunkinbound
+trustrpid=yes
+qualify=yes
+insecure=port,invite
+nat=yes
+
+Protocol : SIP
+
+Globals String: SIPPYSWITCH= SIP/Sippyswitch
+
+Dialplan Entry:
+
+exten => _49.,1,AGI(agi://127.0.0.1:4577/call_log)
+exten => _49.,2,Dial(${Sippyswitch}/${EXTEN:2},,tTor)
+exten => _49.,3,Hangup
+
+============================================================
+hossain voip
+--------------------------------------------------------------
+
+register => shaw:s45h897a3w@51.210.61.112:5060/shaw
+
+[shaw]
+type=peer     
+username=shaw
+secret=s45h897a3w
+host=51.210.61.112
+port=5060
+dtmfmode=rfc2833
+context=trunkinbound
+disallow=all
+allow=g729
+allow=g711
+allow=ulaw
+nat=yes
+qualify=1000
+qualify=yes
+
+exten => _221.,1,AGI(agi://127.0.0.1:4577/call_log)
+exten => _221.,2,Dial(${USA2SIP}/${EXTEN:2},,tTor)
+exten => _221.,3,Hangup
+
+
+USA2SIP=SIP/shaw
+
+===============================================================================
+Manishvoip
+Manishvoip
+
+[testcarrier47]
+disallow=all
+allow=g729
+type=friend
+host=162.211.125.186
+dtmfmode=rfc2833
+context=trunkinbound
+qualify=yes
+insecure=very
+nat=yes
+insecure= port,invite
+
+
+testcarrier47 = SIP/testcarrier47
+
+exten => _47.,1,AGI(agi://127.0.0.1:4577/call_log)
+exten => _47.,2,Dial(SIP/${EXTEN:2}@testcarrier47,,tToR)
+exten => _47.,3,Hangup
+
+
+===============================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

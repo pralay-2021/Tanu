@@ -1,0 +1,68 @@
+
+9836963636
+skytel
+
+skytel
+
+register => 3902771583:AYA72eKR@80.241.208.191:5060
+
+[skytel]
+type=friend
+username=3902771583
+fromuser=3902771583
+secret=AYA72eKR
+host=80.241.208.191
+context=trunkinbound
+canreinvite=yes
+insecure=very
+disallow=all
+allow=alaw
+allow=ulaw
+dtmfmode=rfc2833
+qualify=yes
+nat=yes
+
+exten => _475.,1,AGI(agi://127.0.0.1:4577/call_log)                    
+exten => _475.,2,Dial(SIP/${EXTEN:3}@skytel,,tToR)
+exten => _475.,3,Hangup
+
+
+
+exten => _476.,1,AGI(agi://127.0.0.1:4577/call_log)        
+exten => _476.,2,Set(CALLERID(num)=016196${RAND(520000,950000)})            
+exten => _476.,3,Dial(SIP/${EXTEN:3}@skytel,,tToR)
+exten => _476.,4,Hangup
+
+
+
+==============================================================
+
+
+green
+
+green
+
+register =>Sanu:Sanu@985@151.106.12.126:5060
+
+[green]
+disallow=all
+allow=ulaw
+type=friend
+dtmfmode=rfc2833
+username=Sanu
+secret=Sanu@985
+host=151.106.12.126
+context=trunkinbound
+trustrpid=yes
+sendrpid=yes
+qualify=yes
+canreinvite=yes
+directrtpsetup=yes
+insecure=port,invite
+nat=yes
+
+SIPtrunkgreen=SIP/green
+
+exten => _9.,1,AGI(agi://127.0.0.1:4577/call_log)
+exten => _9.,2,Dial(${SIPtrunkgreen}/${EXTEN:1},,tTo)
+exten => _9.,3,Hangup
