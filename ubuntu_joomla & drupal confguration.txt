@@ -1,0 +1,112 @@
+sudo -s
+#
+
+cd /
+# apt isntall apache2
+# apt install mariadb*
+
+# mysql_secure_installation
+  y
+y
+
+y
+
+
+#apt isntall php libapache2-mod-php
+y
+
+# vi /var/www/html/index.php
+
+# =============================
+joomla
+---------
+lsb_release -a
+
+apt isntall apache2
+
+# systemctl start apache2
+
+# apt install php php-xml php-mysql php-mbstring php-zip php curl php- ldap php-gd
+
+# apt install mysql-server
+# mysql -u root -p
+
+mysql> create database joomla;
+> use joomla;
+ > create user 'user'@localhost identified by '12345';
+ > grant all privileges on joomla.* to 'user'@localhost;
+ >flush privilieges;
+ exit
+
+cd /var/www
+mkdir joomla
+
+cd joomla
+wget https //download
+
+unzip joomla tab press
+
+chown -R www-data. ./
+chmod -R 755 ./
+vim /etc/apache2/sites-available/joomla.conf
+  *virtualhost *;80*
+  servername www.linuxhelp.com
+   documentroot /var/www/joomla/
+</virtualhost>
+
+# a2disable 000.defult.conf
+#a2ensite joomla.conf
+# a2enmod rewrite
+# systemctl restart apache2
+
+browser open  www.linuxhelp.com
+
+=============================================
+Drupal
+-----------
+mysql -r root -p
+
+>create user drupal@localhsot indentfied by "123";
+>create database drupal;
+> grant all on drupal.* To drupal@localhost;
+exit
+vim /etc/php5/apache2/php.ini
+expose_php = off
+
+allow_url_fopen = off
+
+extenstion=msql.so
+ese :wq
+# vim /etc/apache2/apache2.conf
+allowoverride all 3 times
+
+service apache2 restart
+
+a2enmod rewrite
+service apache2 restart
+wget httpls://ftp.drupal.download
+
+# ls
+
+# tar -zxf drupal tab
+# ls
+# mkdir /var/www/html/drupal
+#cp -R drupal-8/* drupal/.htacdess /var/www/html/drupal/
+#mkdir /var/www/html/drupal/sites/defult/files
+#chown www-data:www-data /var/www/html/drupal/sites/defult/files
+
+#cp /var/www/html/drupal/sites/defult/defult.settings.php /var/www/html.drupal/sites/default/setting.php
+#chown www-data:www-data /var/www/html/drupal/sites/defult/setting.php
+service apache2 restart
+
+browser  192.168.0.222/drupal/
+
+
+
+
+
+
+
+
+
+
