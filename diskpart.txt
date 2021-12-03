@@ -1,0 +1,17 @@
+diskpart
+
+list disk
+
+select disk 2
+
+list volume
+
+
+select volume 0
+
+delete volume 
+
+select volume 1
+delete volume
+select disk 2
+convert basic
