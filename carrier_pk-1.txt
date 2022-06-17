@@ -1,3 +1,39 @@
+AKS
+--------------------------------------------
+
+skytel
+skytel
+register => 100119-aks:4cTV0ui7@135.181.215.50:5060
+
+[AksSkytel]
+type=friend
+username=100119-aks
+authuser=100119-aks
+secret=4cTV0ui7
+host=135.181.215.50
+context=trunkinbound
+canreinvite=yes
+insecure=very
+disallow=all
+allow=alaw
+allow=ulaw
+dtmfmode=rfc2833
+qualify=yes
+nat=yes
+
+potocol SIP
+
+exten => _475.,1,AGI(agi://127.0.0.1:4577/call_log)                    
+exten => _475.,2,Dial(SIP/${EXTEN:3}@AksSkytel,,tToR)
+exten => _475.,3,Hangup
+
+exten => _476.,1,AGI(agi://127.0.0.1:4577/call_log)        
+exten => _476.,2,Set(CALLERID(num)=16196${RAND(520000,950000)})            
+exten => _476.,3,Dial(SIP/${EXTEN:3}@AksSkytel,,tToR)
+exten => _476.,4,Hangup
+
+
+===================================================================================
 carrier ID                   Takestore
 
 carrier description          Takestore
